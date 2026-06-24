@@ -221,9 +221,11 @@ Go to the very bottom of your existing CSS styles (inside your `<style>` tags) a
 
 /* This shifts your existing streaming layout over so the sidebar doesn't block it */
 #main-content {
-    margin-left: 260px;
-    flex-grow: 1;
-    padding: 40px;
+    margin-left: 260px; /* This pushes your channel content exactly 260px to the right so the sidebar doesn't block it */
+    position: relative;
+    padding: 20px;
+    width: calc(100% - 260px); /* Keeps your video grid perfectly proportioned to the remaining screen space */
+    box-sizing: border-box;
 }
 
 /* Quick fix for smaller screens so it doesn't break your grid layout */
