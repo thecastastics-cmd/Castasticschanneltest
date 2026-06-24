@@ -500,7 +500,7 @@ Castastics is a world of large casts of unique characters and make all dreams co
                 </div>
                 <div style="text-align: right;">
                     <span style="color: #aaa; font-size: 0.85rem; display: block; margin-bottom: 5px;">Leave a Rating:</span>
-                    <select id="user-star-input" onchange="submitRating()" style="background: #222; color: #fff; border: 1px solid #444; padding: 5px; border-radius: 4px;">
+                    <select id="user-star-input" style="background: #222; color: #fff; border: 1px solid #444; padding: 5px; border-radius: 4px;">
                         <option value="5">⭐⭐⭐⭐⭐ (5)</option>
                         <option value="4">⭐⭐⭐⭐ (4)</option>
                         <option value="3">⭐⭐⭐ (3)</option>
@@ -1014,10 +1014,11 @@ Castastics is a world of large casts of unique characters and make all dreams co
             });
         }
 
-        // Action when a user clicks 'Post' comment
+        // Action when a user clicks 'Post' comment (Now submits rating too!)
         function submitComment() {
             const nameInput = document.getElementById("comment-username");
             const textInput = document.getElementById("comment-text");
+            const selectEl = document.getElementById("user-star-input");
             const toast = document.getElementById("custom-toast");
             
             const storageKey = 'hasCommented_' + window.currentMediaId;
@@ -1027,7 +1028,6 @@ Castastics is a world of large casts of unique characters and make all dreams co
                 if (toast) {
                     toast.innerText = message;
                     toast.style.display = "block";
-                    // Automatically hide it after 3 seconds
                     setTimeout(() => {
                         toast.style.display = "none";
                     }, 3000);
@@ -1044,18 +1044,37 @@ Castastics is a world of large casts of unique characters and make all dreams co
             const name = nameInput.value.trim() || "AnonymousCastastian";
             const text = textInput.value.trim();
 
-            if (!text) return; 
+            if (!text) return; // Prevent empty posts
 
+            // Get the selected star value from the dropdown menu
+            const selectedStarValue = parseInt(selectEl.value);
+
+            // References for Firebase
             const commentsRef = ref(db, `mediaStats/${window.currentMediaId}/comments`);
+            const ratingRef = ref(db, `mediaStats/${window.currentMediaId}/rating`);
             const newCommentRef = push(commentsRef);
             
+            // 2. Submit the text comment to Firebase
             set(newCommentRef, { name: name, text: text }).then(() => {
+                
+                // 3. Simultaneously update the star ratings and count in Firebase
+                runTransaction(ratingRef, (currentRating) => {
+                    if (!currentRating) {
+                        return { totalStars: selectedStarValue, count: 1 };
+                    }
+                    return {
+                        totalStars: currentRating.totalStars + selectedStarValue,
+                        count: currentRating.count + 1
+                    };
+                });
+
+                // Lock it in browser memory
                 localStorage.setItem(storageKey, 'true');
                 
-                // 2. Trigger the custom toast message instead of the browser pop-up
+                // Show the toast notification
                 showToast("Thank you for commenting!");
                 
-                textInput.value = ""; 
+                textInput.value = ""; // Clear input bar cleanly
             });
         }
 
