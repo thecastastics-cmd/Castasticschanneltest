@@ -396,32 +396,26 @@
         .live-shelf-portal:hover {
             border-color: #ffcc00;
         }
-/* --- NAV LOGO IMAGE STYLING (FIXED SIZE) --- */
-        .nav-logo-container {
-            width: 100%;
-            padding: 10px 5px;
+/* --- DIRECT SIDEBAR LOGO FIX --- */
+        .sidebar-logo {
             text-align: center;
+            padding: 15px 10px;
+            width: 100%;
             box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
-        .nav-logo-img {
-            width: auto;
-            max-width: 140px; /* Restricts it from getting wider than your mobile menu */
-            max-height: 70px;  /* Keeps the height from taking over the screen */
+        .sidebar-logo img {
+            width: 100%;
+            max-width: 130px; /* Adjust this to make the logo smaller or bigger */
+            height: auto;
             display: block;
-            margin: 0 auto;
-            object-fit: contain;
+            margin: 0 auto 5px;
         }
-        .nav-subtitle-fix {
+        .sidebar-logo p {
             color: #888;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 4px;
-            display: block;
+            margin: 0;
         }
     </style>
 </head>
@@ -435,17 +429,17 @@
 
     <div id="castastics-interface">
 
-        <div class="nav-logo-container">
-            <img src="logo.png" alt="The Castastics" class="nav-logo-img">
-            <span class="nav-subtitle-fix">Official Navigation</span>
-        </div>
+        <nav id="app-sidebar">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="The Castastics">
+                <p>Official Navigation</p>
+            </div>
             <ul class="nav-menu">
                 <li><a href="#" class="nav-item active" onclick="switchPage('home')">Home</a></li>
                 <li><a href="#" class="nav-item" onclick="switchPage('merch')">Merch</a></li>
                 <li><a href="#" class="nav-item" onclick="switchPage('contact')">Contact</a></li>
             </ul>
         </nav>
-
         <div id="main-content">
             <div id="page-home" class="app-page">
     <div class="channel-banner"></div>
