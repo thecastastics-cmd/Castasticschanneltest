@@ -488,53 +488,85 @@ Castastics is a world of large casts of unique characters and make all dreams co
             <div id="player-container"></div>
             <div id="now-playing">SELECT A STORY TO START</div>
         </div>
+<div id="media-interaction-box" style="max-width: 800px; margin: 20px auto; padding: 15px; background: #111; border-radius: 8px; border: 1px solid #222; font-family: sans-serif;">
+            
+            <div class="rating-container" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px;">
+                <div>
+                    <h3 id="rating-title" style="color: #fff; margin: 0 0 5px 0; font-size: 1.1rem;">Ratings for This Media</h3>
+                    <div style="color: #ffcc00; font-size: 1.2rem;">
+                        <span id="average-stars">⭐⭐⭐⭐⭐</span> 
+                        <span id="average-rating-text" style="color: #aaa; font-size: 0.9rem; margin-left: 5px;">(5.0/5)</span>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <span style="color: #aaa; font-size: 0.85rem; display: block; margin-bottom: 5px;">Leave a Rating:</span>
+                    <select id="user-star-input" onchange="submitRating()" style="background: #222; color: #fff; border: 1px solid #444; padding: 5px; border-radius: 4px;">
+                        <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4)</option>
+                        <option value="3">⭐⭐⭐ (3)</option>
+                        <option value="2">⭐⭐ (2)</option>
+                        <option value="1">⭐ (1)</option>
+                    </select>
+                </div>
+            </div>
 
+            <h3 style="color: #fff; margin: 0 0 15px 0; font-size: 1.1rem;">Community Comments</h3>
+            
+            <div id="comments-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; padding-right: 5px;">
+                </div>
+
+            <div class="comment-input-form" style="display: flex; gap: 10px;">
+                <input type="text" id="comment-username" placeholder="Your Name" style="width: 25%; background: #222; color: #fff; border: 1px solid #333; padding: 10px; border-radius: 4px; font-size: 0.9rem;">
+                <input type="text" id="comment-text" placeholder="Add a public comment..." style="width: 60%; background: #222; color: #fff; border: 1px solid #333; padding: 10px; border-radius: 4px; font-size: 0.9rem;">
+                <button onclick="submitComment()" style="width: 15%; background: #ffcc00; color: #000; border: none; padding: 10px; border-radius: 4px; font-weight: bold; cursor: pointer;">Post</button>
+            </div>
+</div>
         <div class="section-title">CASTASTICS MOVIES</div>
 <div class="grid">
     <!-- MOVIE 1 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/asw36zly5e8gtoaiqtw8s/The-Castastics-Movie.mp4?rlkey=nqqr5pzt0u41pp4flh3e35u2l&st=e5w5jr2p&raw=1', 'The Castastics Movie'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/asw36zly5e8gtoaiqtw8s/The-Castastics-Movie.mp4?rlkey=nqqr5pzt0u41pp4flh3e35u2l&st=e5w5jr2p&raw=1', 'The Castastics Movie'); registerVideoView(); loadMediaInteraction('movie1');">
         <img src="posters/movie1.jpg">
         <p class="movie-title">The Castastics Movie</p>
         <p class="movie-desc">David, a 16 yr old boy who dreams of becoming an artist ever since, created books based upon his childhood and with the help of his magical castastian friends lives in his house. His goal is to get his artwork known.</p>
     </div>
     
     <!-- MOVIE 2 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/3qisp19s9zd7c0cf46hlm/The-Castastics-2_-Into-The-CastasticVerse-Full-Movie.mp4?rlkey=5cewkcfmpppi4t0h60s6pgpde&st=829h902b&raw=1', 'The Castastics 2: Into The CastasticVerse'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/3qisp19s9zd7c0cf46hlm/The-Castastics-2_-Into-The-CastasticVerse-Full-Movie.mp4?rlkey=5cewkcfmpppi4t0h60s6pgpde&st=829h902b&raw=1', 'The Castastics 2: Into The CastasticVerse'); registerVideoView(); loadMediaInteraction('movie2');">
         <img src="posters/movie2.jpg">
         <p class="movie-title">The Castastics 2: Into The CastasticVerse</p>
         <p class="movie-desc">The second movie of the series. David, a 20 yr old, a famous author and completed his dreams of being an artist to get his work known. He off to a new chapter in his life, getting his dream girl, Shiann, who is now back in Trinidad. The Castastians also have to stop Jael, David's former crush from destroying the CastasticVerse.</p>
     </div>
     
     <!-- MOVIE 3 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/2tovxadce8bp9dwah4gah/The-Castastics-3_-Brookhaven-Full-Movie.mp4?rlkey=0m66e3wflx5tjlaroph9eyocj&st=gg8ermz6&raw=1', 'The Castastics 3: Brookhaven'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/2tovxadce8bp9dwah4gah/The-Castastics-3_-Brookhaven-Full-Movie.mp4?rlkey=0m66e3wflx5tjlaroph9eyocj&st=gg8ermz6&raw=1', 'The Castastics 3: Brookhaven'); registerVideoView(); loadMediaInteraction('movie3');">
         <img src="posters/movie3.jpg">
         <p class="movie-title">The Castastics 3: Brookhaven</p>
         <p class="movie-desc">David, now an adult have adopted a kid, BabyDavid and take care of him but is feeling sad about Shiann being a gold digger and she was not who she was. But then, Emily Moraldo (David's first crush from SJS) came back to David's life and soon they both create an artsy family together.</p>
     </div>
     
     <!-- MOVIE 4 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/9qadd7cooyx87pe8g9ano/The-Castastics-4_-Castastic-Heroes-FULL-MOVIE.mp4?rlkey=kgc216e0vk856qjf45jmwt866&st=09l357jj&raw=1', 'The Castastics 4: Castastic Heroes'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/9qadd7cooyx87pe8g9ano/The-Castastics-4_-Castastic-Heroes-FULL-MOVIE.mp4?rlkey=kgc216e0vk856qjf45jmwt866&st=09l357jj&raw=1', 'The Castastics 4: Castastic Heroes'); registerVideoView(); loadMediaInteraction('movie4');">
         <img src="posters/movie4.jpg">
         <p class="movie-title">The Castastics 4: Castastic Heroes</p>
         <p class="movie-desc">In a brand new era, after BabyDavid Jr. defeated Gabby and imprison her for good, her daughter take matters within her own hands and destroys the Castastics World that David worked so hard to build, so the Castastians, BabyDavid, BabyBrian, Iesha, Azariah, Elijah, and new friends alike step up and became heroes. Took place within David's creative world he built in his books and drawings.</p>
     </div>
     
     <!-- MOVIE 5 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/gqg8okmhswfvc43pvh5mw/The-Castastics-5_-The-Final-Battle.mp4?rlkey=nytboa0t5gyndninod65inovf&st=1udj3j8x&raw=1', 'The Castastics 5: The Final Battle'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/gqg8okmhswfvc43pvh5mw/The-Castastics-5_-The-Final-Battle.mp4?rlkey=nytboa0t5gyndninod65inovf&st=1udj3j8x&raw=1', 'The Castastics 5: The Final Battle'); registerVideoView(); loadMediaInteraction('movie5');">
         <img src="posters/movie5.jpg">
         <p class="movie-title">The Castastics 5: The Final Battle</p>
         <p class="movie-desc">Talos returns to destroy the Castastics world David created, a world where no one can ever die and live in peace and harmony, now its up to the castastians to protect their world no matter what.</p>
     </div>
     
     <!-- MOVIE 6 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/3gftio24dikq9fkhwtccm/The-Super-Toys-A-Castastics-Story.mp4?rlkey=01gzkpx99jw9r5fron96t260f&st=eiezm8gw&raw=1', 'The Super Toys (A Castastics Story)'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/3gftio24dikq9fkhwtccm/The-Super-Toys-A-Castastics-Story.mp4?rlkey=01gzkpx99jw9r5fron96t260f&st=eiezm8gw&raw=1', 'The Super Toys (A Castastics Story)'); registerVideoView(); loadMediaInteraction('movie6');">
         <img src="posters/movie6.jpg">
         <p class="movie-title">The Super Toys</p>
         <p class="movie-desc">Mr. Fruitó strikes again but decides to change his ways for good.</p>
     </div>
     
     <!-- MOVIE 7 -->
-    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/hymc8ynygh76oev3vlq5s/The-Idiotastics-Movie-A-Castastics-Story.mp4?rlkey=ukb8jjdm9nwjtu69klm5zwe2h&st=x8erf7ek&raw=1', 'The Idiotastics Movie (A Castastics Story)'); registerVideoView();">
+    <div class="card" onclick="playMedia('https://www.dropbox.com/scl/fi/hymc8ynygh76oev3vlq5s/The-Idiotastics-Movie-A-Castastics-Story.mp4?rlkey=ukb8jjdm9nwjtu69klm5zwe2h&st=x8erf7ek&raw=1', 'The Idiotastics Movie (A Castastics Story)'); registerVideoView(); loadMediaInteraction('movie7');">
         <img src="posters/movie7.jpg">
         <p class="movie-title">The Idiotastics Movie</p>
         <p class="movie-desc">Brian, David's autistic and not so smart music lover, completed his dreams of being a musician and even meeting lady gaga, his idol.</p>
@@ -547,7 +579,7 @@ Castastics is a world of large casts of unique characters and make all dreams co
             <div class="card">
                 <img src="posters/castastics_show.jpg">
                 <p>The Castastics</p>
-                <select onchange="playMedia(this.value, 'The Castastics ' + this.options[this.selectedIndex].text); if(this.value) { registerVideoView(); }">
+                <select onchange="playMedia(this.value, 'The Castastics ' + this.options[this.selectedIndex].text); if(this.value) { registerVideoView(); loadMediaInteraction('castastics_show'); }">
                     <option value="">Select Episode</option>
                     
                         
@@ -652,7 +684,7 @@ Castastics is a world of large casts of unique characters and make all dreams co
             <div class="card">
                 <img src="posters/idiotastics_show.jpg">
                 <p>The Idiotastics</p>
-                <select onchange="playMedia(this.value, 'The Idiotastics ' + this.options[this.selectedIndex].text); if(this.value) { registerVideoView(); }">
+                <select onchange="playMedia(this.value, 'The Idiotastics ' + this.options[this.selectedIndex].text); if(this.value) { registerVideoView(); loadMediaInteraction('idiotastics_show'); }">
                     <option value="">Select Episode</option>
                     <optgroup label="Season 1">
                         <option value="https://www.dropbox.com/scl/fi/stktzu7p1ivukwgruobta/The-Idiotastics-S1-EP-1-Rover-the-green-alien-pup-got-a-msg-for-you.mp4?rlkey=ymnwcka58ubmloqceer661tr6&st=2zdht4i9&raw=1">Ep 1: Rover</option>
@@ -683,7 +715,7 @@ Castastics is a world of large casts of unique characters and make all dreams co
             <div class="card">
                 <img src="posters/tales.jpg">
                 <p>Tales Of The Castastics</p>
-                <select onchange="playMedia(this.value, 'Tales Of The Castastics' + this.options[this.selectedIndex].text); if(this.value) { registerVideoView(); }">
+                <select onchange="playMedia(this.value, 'Tales Of The Castastics' + this.options[this.selectedIndex].text); if(this.value) { registerVideoView(); loadMediaInteraction('totc_show'); }">
                     <option value="">Select Episode</option>
                     <optgroup label="Season 1">
                         <option value="https://www.dropbox.com/scl/fi/k3rm4y67wn63c51olpbds/b1f5225698ae11e0e6b9faebb3f99ec2.mp4?rlkey=k8tva8g3bi05tzio739imu0qj&st=m29okd8p&raw=1">Ep 1: David Draws</option>
@@ -850,6 +882,179 @@ Castastics is a world of large casts of unique characters and make all dreams co
 
         // Send the function to the global window scope so your HTML onclicks/onchanges can find it
         window.registerVideoView = registerVideoView;
+                </script>
+
+
+                <script type="module">
+        import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, onValue, runTransaction, push, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Your exact same config so this script connects completely independently
+        const firebaseConfig = {
+            apiKey: "AIzaSyBBx7S1tbTO02Y0TfSYodqJWRvLfQwq_Qs",
+            authDomain: "castastics-movies.firebaseapp.com",
+            databaseURL: "https://castastics-movies-default-rtdb.firebaseio.com",
+            projectId: "castastics-movies",
+            storageBucket: "castastics-movies.firebasestorage.app",
+            messagingSenderId: "194457932457",
+            appId: "1:194457932457:web:72e3372596f4f248a30fb8",
+            measurementId: "G-W59DD5SNZ6"
+        };
+
+        // Initialize Firebase safely for this module
+        let app;
+        try {
+            app = getApp(); 
+        } catch (e) {
+            app = initializeApp(firebaseConfig); 
+        }
+
+        const db = getDatabase(app);
+        
+        // Track which movie/show is currently selected (Default to movie1)
+        window.currentMediaId = "movie1"; 
+
+        // Baseline "High-Tier" Pre-existing comments to seed the database if it's brand new
+        const defaultSeeds = {
+            movie1: {
+                rating: { totalStars: 25, count: 5 },
+                comments: {
+                    "seed1": { name: "ArtsyFan_99", text: "This movie is literal perfection! Love the character designs! 🔥" },
+                    "seed2": { name: "RobloxDev_Trini", text: "Incredible storytelling. David really brought his childhood books to life perfectly." }
+                }
+            },
+            movie2: {
+                rating: { totalStars: 30, count: 6 },
+                comments: {
+                    "seed1": { name: "CastasticsStan", text: "Into the CastasticVerse went completely crazy! Jael was an awesome villain." },
+                    "seed2": { name: "BrianTheFool_Fan", text: "The soundtrack during the Trinidad scenes was beautiful." }
+                }
+            },
+            movie3: {
+                rating: { totalStars: 24, count: 5 },
+                comments: {
+                    "seed1": { name: "StoryLover", text: "BabyDavid is so cute! Seeing Emily come back into his life made me so happy." }
+                }
+            },
+            movie4: {
+                rating: { totalStars: 35, count: 7 },
+                comments: {
+                    "seed1": { name: "EpicGamer", text: "The action in this one went crazy! True superhero vibe status." }
+                }
+            },
+            castastics_show: {
+                rating: { totalStars: 48, count: 10 },
+                comments: {
+                    "seed1": { name: "ClassicViewer", text: "Ep 2 with the Evil Toys is a masterpiece lol. Keep it up!" },
+                    "seed2": { name: "V_vs_Numbers", text: "Letters vs Numbers episode was legendary." }
+                }
+            }
+        };
+
+        let unsubscribeComments = null;
+
+        // Load media data whenever a user switches movies or episodes
+        function loadMediaInteraction(mediaId) {
+            window.currentMediaId = mediaId;
+            
+            // Clean up old active listeners
+            if (unsubscribeComments) unsubscribeComments();
+
+            const mediaRef = ref(db, 'mediaStats/' + mediaId);
+
+            unsubscribeComments = onValue(mediaRef, (snapshot) => {
+                let data = snapshot.val();
+                
+                // If this specific media has absolutely no data in Firebase yet, seed it with high ratings/comments
+                if (!data && defaultSeeds[mediaId]) {
+                    set(mediaRef, defaultSeeds[mediaId]);
+                    data = defaultSeeds[mediaId];
+                }
+
+                // --- Render Ratings ---
+                const ratingData = data?.rating || { totalStars: 5, count: 1 };
+                const avg = (ratingData.totalStars / ratingData.count).toFixed(1);
+                document.getElementById("average-rating-text").innerText = `(${avg}/5 from ${ratingData.count} reviews)`;
+                document.getElementById("average-stars").innerText = "⭐".repeat(Math.round(avg));
+
+                // --- Render Comments ---
+                const commentsListElement = document.getElementById("comments-list");
+                commentsListElement.innerHTML = ""; // Clear existing list
+                
+                if (data?.comments) {
+                    Object.values(data.comments).reverse().forEach(comment => {
+                        const commentDiv = document.createElement("div");
+                        commentDiv.style.cssText = "background: #1c1c1c; padding: 10px; margin-bottom: 8px; border-radius: 4px; border-left: 3px solid #ffcc00;";
+                        commentDiv.innerHTML = `<strong style="color: #ffcc00; font-size: 0.85rem; display:block; margin-bottom:2px;">@${comment.name}</strong>
+                                                <span style="color: #eee; font-size: 0.9rem;">${comment.text}</span>`;
+                        commentsListElement.appendChild(commentDiv);
+                    });
+                } else {
+                    commentsListElement.innerHTML = `<p style="color: #666; font-size: 0.9rem; text-align: center;">No comments yet. Be the first!</p>`;
+                }
+            });
+        }
+
+        // Action when a user updates the star rating dropdown
+        function submitRating() {
+            const selectEl = document.getElementById("user-star-input");
+            const selectedStarValue = parseInt(selectEl.value);
+            const ratingRef = ref(db, `mediaStats/${window.currentMediaId}/rating`);
+
+            runTransaction(ratingRef, (currentRating) => {
+                if (!currentRating) {
+                    return { totalStars: selectedStarValue, count: 1 };
+                }
+                return {
+                    totalStars: currentRating.totalStars + selectedStarValue,
+                    count: currentRating.count + 1
+                };
+            });
+        }
+
+        // Action when a user clicks 'Post' comment
+        function submitComment() {
+            const nameInput = document.getElementById("comment-username");
+            const textInput = document.getElementById("comment-text");
+            
+            // Create a unique key for this specific media item in local storage
+            const storageKey = 'hasCommented_' + window.currentMediaId;
+
+            // Check if this browser already left a comment on this media
+            if (localStorage.getItem(storageKey) === 'true') {
+                alert("Thank you for commenting! You've already shared your thoughts on this one.");
+                textInput.value = ""; // Clear input
+                return; 
+            }
+
+            const name = nameInput.value.trim() || "AnonymousCastastian";
+            const text = textInput.value.trim();
+
+            if (!text) return; // Prevent empty posts
+
+            const commentsRef = ref(db, `mediaStats/${window.currentMediaId}/comments`);
+            const newCommentRef = push(commentsRef);
+            
+            set(newCommentRef, { name: name, text: text }).then(() => {
+                // Save to browser memory that they have successfully commented on this item
+                localStorage.setItem(storageKey, 'true');
+                
+                // Alert the user with your thank you message
+                alert("Thank you for commenting!");
+                
+                textInput.value = ""; // Clear out input bar cleanly
+            });
+        }
+
+        // Bind functions globally to window scope
+        window.loadMediaInteraction = loadMediaInteraction;
+        window.submitRating = submitRating;
+        window.submitComment = submitComment;
+
+        // Auto-load Movie 1 values on absolute page launch initialization
+        window.addEventListener("DOMContentLoaded", () => {
+            loadMediaInteraction("movie1");
+        });
                 </script>
 
     </div> 
