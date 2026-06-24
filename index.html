@@ -430,19 +430,35 @@
             height: auto;
             pointer-events: none;
             opacity: 0.95;
-            z-index: 9999; /* Sits on top for large screens */
+            z-index: 9999;
         }
+        /* Desktop coordinates */
         .top-left { top: 0; left: 0; width: 180px; }
         .top-right { top: 0; right: 0; width: 180px; }
         .bottom-left { bottom: 0; left: 0; width: 180px; }
         .bottom-right { bottom: 0; right: 0; width: 180px; }
 
-        /* 📱 MOBILE FIX: Shrunk down and tucked behind the text */
+        /* 📱 MOBILE FIX: Shrink and nudge into the absolute edges */
         @media (max-width: 768px) {
-            .corner-art {
-                width: 110px; /* Thins the paper down so the characters fit perfectly */
-                z-index: -1;  /* Pushes them back so they don't block the banner or buttons */
-                opacity: 0.8;  /* Blends them slightly into the dark theme background */
+            .top-left { 
+                width: 100px; 
+                top: -15px; 
+                left: -15px; 
+            }
+            .top-right { 
+                width: 100px; 
+                top: -15px; 
+                right: -15px; 
+            }
+            .bottom-left { 
+                width: 100px; 
+                bottom: -15px; 
+                left: -15px; 
+            }
+            .bottom-right { 
+                width: 100px; 
+                bottom: -15px; 
+                right: -15px; 
             }
         }
     </style>
