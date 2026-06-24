@@ -348,6 +348,94 @@
         .contact-email a:hover {
             text-decoration: underline;
         }
+/* --- VISUAL LINKTREE PREVIEW PAGE --- */
+        .linktree-header {
+            text-align: center;
+            padding: 30px 0 10px;
+        }
+        .linktree-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid #ffcc00;
+            object-fit: cover;
+            background: #1a1a1a;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+        }
+        .linktree-username {
+            color: #ffcc00;
+            font-size: 1.4rem;
+            margin: 10px 0 5px;
+            text-transform: uppercase;
+        }
+        .linktree-subtitle {
+            color: #aaa;
+            font-size: 0.85rem;
+            font-family: sans-serif;
+            margin: 0 0 30px;
+        }
+        
+        /* Premium Grid Cards */
+        .merch-preview-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            padding: 0 15px;
+        }
+        .merch-preview-card {
+            background: #111111;
+            border: 2px solid #222;
+            border-radius: 14px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: block;
+        }
+        .merch-preview-card:hover {
+            transform: translateY(-3px);
+            border-color: #ffcc00;
+        }
+        .merch-banner-placeholder {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border-bottom: 2px solid #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffcc00;
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+        .merch-card-body {
+            padding: 20px;
+            text-align: left;
+        }
+        .merch-card-body h3 {
+            margin: 0 0 6px 0;
+            color: #ffcc00;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+        }
+        .merch-card-body p {
+            margin: 0 0 15px 0;
+            color: #ccc;
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .merch-card-btn {
+            background: #ffcc00;
+            color: #000;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -383,11 +471,11 @@
                 <h1>The Castastics Channel</h1>
                 <div class="sub-count"><span id="sub-count-text">Loading subscribers...</span> • 1,042,583 views</div>
                 <div class="channel-links">
-            <a href="https://twitch.tv/davidartsylive" target="_blank">🟣 Twitch</a>
+            <a href="https://www.amazon.com/s?i=mobile-apps&rh=p_4%3AThe%2BCastastics&search-type=ss" target="_blank">📦 Games On Amazon Appstore</a>
             <a href="https://www.amazon.com/stores/David-Artsy/author/B0CVR21P9C?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank">📚 Buy Comics</a>
             <a href="https://open.spotify.com/artist/64kJiIpqeckLgcpOXd2eVT?si=jR_qscNdTqSAcTR9DfzqSw" target="_blank">🎵 Stream Music</a>
-            <a href="https://castasticsontherun.vercel.app/" target="_blank">🎮 Play Castastics Game</a>
- <a href="https://thecastastics.netlify.app/merch" target="_blank">👕 Grab Merch</a>
+            <a href="https://apkpure.com/developer?id=24485827" target="_blank">🎮 Play Castastics Games</a>
+ <a href="https://thecastasticstore.threadless.com/" target="_blank">👕 Grab Merch</a>
  <a href="https://payhip.com/Castasticstoys" target="_blank">🧸 Get Castastics Toys</a>
                 </div>
                 <button class="sub-btn" id="sub-button">Subscribe</button>
@@ -730,22 +818,75 @@
 
     <div id="page-merch" class="app-page" style="display: none;">
         <div class="container">
-            <div class="section-title">OFFICIAL MERCH COLLECTIONS</div>
-            <div class="linktree-grid">
+            
+            <div class="linktree-header">
+                <img src="pfp.jpg" class="linktree-avatar" alt="David Artsy">
+                <div class="linktree-username">David Artsy Merch</div>
+                <div class="linktree-subtitle">Official CastasticVerse Collections</div>
+            </div>
+
+            <div class="merch-preview-grid">
                 
-                <a href="https://thecastastics.netlify.app/merch" target="_blank" class="linktree-card">
-                    <img src="posters/movie6.jpg" class="linktree-img" alt="Merch">
-                    <div class="linktree-info">
-                        <h3>Official Apparel Collection</h3>
-                        <p>Browse official custom t-shirts, hoodies, and accessories from the universe.</p>
+                <a href="https://tr.ee/RHswus" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">💿</div>
+                    <div class="merch-card-body">
+                        <h3>Castastics Physical CDS</h3>
+                        <p>Browse official custom physical cds of david artsy's music from the collection.</p>
+                        <div class="merch-card-btn">Shop Collection</div>
                     </div>
                 </a>
 
-                <a href="https://payhip.com/Castasticstoys" target="_blank" class="linktree-card">
-                    <img src="posters/movie4.jpg" class="linktree-img" alt="Toys">
-                    <div class="linktree-info">
-                        <h3>Castastics Plushies & Toys</h3>
-                        <p>Get your hands on custom handcrafted figure sets and character gear.</p>
+                <a href="https://tr.ee/UQf06Y" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">📀</div>
+                    <div class="merch-card-body">
+                        <h3>Movie DVDS</h3>
+                        <p>Buy physical copy of each dvds of the Castastics movies now..</p>
+                        <div class="merch-card-btn">Shop Collection</div>
+                    </div>
+                </a>
+
+                <a href="https://tr.ee/ddI7sQ" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">🧸</div>
+                    <div class="merch-card-body">
+                        <h3>Castastics Toys</h3>
+                        <p>Explore the full category of toys of each Castastic character and have them at your home.</p>
+                        <div class="merch-card-btn">Shop Collection</div>
+                    </div>
+                </a>
+
+                <a href="https://tr.ee/zWry2k" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">🎮</div>
+                    <div class="merch-card-body">
+                        <h3>Game DVDS</h3>
+                        <p>Grab a physical copy of the castastic games today.</p>
+                        <div class="merch-card-btn">Shop Collection</div>
+                    </div>
+                </a>
+
+                <a href="https://tr.ee/HJEq4X" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">📚</div>
+                    <div class="merch-card-body">
+                        <h3>Physical Books</h3>
+                        <p>Grab and read the book series today.</p>
+                        <div class="merch-card-btn">Shop Collection</div>
+                    </div>
+                </a>
+
+                <a href="https://tr.ee/JqRbaj" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">🎮</div>
+                    <div class="merch-card-body">
+                        <h3>Physical Comic Books</h3>
+                        <p>Grab physical copies of the castastics comic series today.</p>
+                        <div class="merch-card-btn">Shop Collection</div>
+                    </div>
+                </a>
+
+                <a href="https://tr.ee/WY1mjL" target="_blank" class="merch-preview-card">
+                    <div class="merch-banner-placeholder">👕</div>
+                    <div class="merch-card-body">
+                        <h3>Clothing, Stickers, Items, Canvases</h3>
+                        <p>Castastics merchandise. shirts, pants, bags, shoes, stickers, david artsy's artwork prints, all here!</p>
+                        <div class="merch-card-btn">Shop Collection</div>
                     </div>
                 </a>
 
@@ -775,8 +916,11 @@
             <a href="https://www.facebook.com/thedavidartsy/" target="_blank">Facebook</a>
             <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">Instagram</a>
             <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">Twitch</a>
+            <a href="https://www.tiktok.com/@realdavidartsy/" target="_blank">TikTok</a>
+            <a href="https://youtube.com/@davidartsy" target="_blank">Youtube</a>
+            <a href="https://www.snapchat.com/@thecastastics" target="_blank">Snapchat</a>
         </div>
-        <p class="copyright">&copy; 2026 David Artsy. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2026 Castastics. All Rights Reserved.</p>
     </footer>
 
 </div> </div> <script>
