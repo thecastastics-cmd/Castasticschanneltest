@@ -348,101 +348,46 @@
         .contact-email a:hover {
             text-decoration: underline;
         }
-/* --- NATIVE LINKTREE-STYLE SHOPPING GRID --- */
-        .merch-shop-container {
-            max-width: 800px;
+
+            /* --- VISUAL TUBE-STYLE STACKED MERCH FEED --- */
+        .tube-shop-layout {
+            max-width: 650px; /* Perfectly frames standard Linktree layouts on all devices */
             margin: 0 auto;
-            padding: 20px 15px 60px;
-            text-align: center;
-        }
-        .shop-header {
-            margin-bottom: 30px;
-        }
-        .shop-header h2 {
-            color: #ffcc00;
-            font-size: 1.6rem;
-            text-transform: uppercase;
-            margin: 0 0 5px 0;
-        }
-        .shop-header p {
-            color: #aaa;
-            font-family: sans-serif;
-            font-size: 0.85rem;
-            margin: 0;
-        }
-
-        /* The 2-column visual grid matching your screenshot */
-        .merch-display-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 0;
-        }
-
-        /* Clickable Linktree Grid Card */
-        .merch-shop-card {
-            background: #111111;
-            border: 2px solid #222;
-            border-radius: 16px;
-            overflow: hidden;
-            text-decoration: none;
+            padding: 20px 10px 80px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            gap: 45px; /* Creates clean spacing between each major collection category */
         }
-        .merch-shop-card:hover {
-            transform: translateY(-3px);
+        
+        .collection-shelf {
+            text-align: left;
+            width: 100%;
+        }
+        
+        .shelf-title {
+            color: #ffcc00;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 12px 10px;
+            font-weight: bold;
+            border-left: 4px solid #ffcc00;
+            padding-left: 10px;
+        }
+        
+        .live-shelf-portal {
+            width: 100%;
+            height: 600px; /* Gives each visual store plenty of vertical display room */
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            background: #111111;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.2s;
+        }
+        
+        .live-shelf-portal:hover {
             border-color: #ffcc00;
         }
-
-        /* Visual placeholder box so you don't need hosted images */
-        .merch-image-placeholder {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
-            border-bottom: 2px solid #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: sans-serif;
-            color: #444;
-            font-weight: bold;
-            letter-spacing: 1px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        /* Text details matching the screenshot layout */
-        .merch-details-box {
-            padding: 15px;
-            text-align: center;
-            background: #111111;
-            flex-grow: 1;
-        }
-        .merch-details-box h3 {
-            margin: 0 0 5px 0;
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .merch-details-box p {
-            margin: 0;
-            color: #ffcc00;
-            font-family: sans-serif;
-            font-size: 0.8rem;
-        }
-
-        /* Drops to 1 column cleanly on narrow phone screens */
-        @media (max-width: 600px) {
-            .merch-display-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .merch-image-placeholder {
-                height: 150px;
-            }
-            }
 
     </style>
 </head>
@@ -824,76 +769,47 @@
 
     </div> 
 
+
 <div id="page-merch" class="app-page" style="display: none;">
-        <div class="merch-shop-container">
+        <div class="tube-shop-layout">
             
-            <div class="shop-header">
-                <h2>Official Collections</h2>
-                <p>Tap a collection to view full product details on Linktree</p>
+            <div class="collection-shelf">
+                <div class="shelf-title">Physical CDs</div>
+                <iframe src="https://tr.ee/RHswus" class="live-shelf-portal" title="CDs" loading="lazy"></iframe>
             </div>
 
-            <div class="merch-display-grid">
-                
-                <a href="https://tr.ee/RHswus" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Media</div>
-                    <div class="merch-details-box">
-                        <h3>Physical CDs</h3>
-                        <p>Music Collection</p>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/UQf06Y" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Movies</div>
-                    <div class="merch-details-box">
-                        <h3>Movie DVDs</h3>
-                        <p>Film Collection</p>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/ddI7sQ" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Toys</div>
-                    <div class="merch-details-box">
-                        <h3>Toys</h3>
-                        <p>12 Products</p>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/zWry2k" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Games</div>
-                    <div class="merch-details-box">
-                        <h3>Game DVDs</h3>
-                        <p>Gaming Collection</p>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/HJEq4X" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Apparel</div>
-                    <div class="merch-details-box">
-                        <h3>Books</h3>
-                        <p>13 Products</p>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/JqRbaj" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Metaverse</div>
-                    <div class="merch-details-box">
-                        <h3>Comic Books</h3>
-                        <p>Read the series</p>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/WY1mjL" target="_blank" class="merch-shop-card">
-                    <div class="merch-image-placeholder">Castastics Merch</div>
-                    <div class="merch-details-box">
-                        <h3>Merchandise</h3>
-                        <p>Clothing, Stickers, Bags, Etc</p>
-                    </div>
-                </a>
-
+            <div class="collection-shelf">
+                <div class="shelf-title">Movie DVDs</div>
+                <iframe src="https://tr.ee/UQf06Y" class="live-shelf-portal" title="DVDs" loading="lazy"></iframe>
             </div>
+
+            <div class="collection-shelf">
+                <div class="shelf-title">Castastics Toys</div>
+                <iframe src="https://tr.ee/ddI7sQ" class="live-shelf-portal" title="Toys" loading="lazy"></iframe>
+            </div>
+
+            <div class="collection-shelf">
+                <div class="shelf-title">Game DVDs</div>
+                <iframe src="https://tr.ee/zWry2k" class="live-shelf-portal" title="Games" loading="lazy"></iframe>
+            </div>
+
+            <div class="collection-shelf">
+                <div class="shelf-title">Physical Books</div>
+                <iframe src="https://tr.ee/HJEq4X" class="live-shelf-portal" title="Books" loading="lazy"></iframe>
+            </div>
+
+            <div class="collection-shelf">
+                <div class="shelf-title">Physical Comic Books</div>
+                <iframe src="https://tr.ee/JqRbaj" class="live-shelf-portal" title="Comics" loading="lazy"></iframe>
+            </div>
+
+            <div class="collection-shelf">
+                <div class="shelf-title">Merchandise</div>
+                <iframe src="https://tr.ee/WY1mjL" class="live-shelf-portal" title="Clothing, Stickers, Artworks, Bags etc" loading="lazy"></iframe>
+            </div>
+
         </div>
 </div>
-
     <div id="page-contact" class="app-page" style="display: none;">
         <div class="container">
             <div class="section-title">CONTACT & INQUIRIES</div>
