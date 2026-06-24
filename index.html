@@ -1018,33 +1018,44 @@ Castastics is a world of large casts of unique characters and make all dreams co
         function submitComment() {
             const nameInput = document.getElementById("comment-username");
             const textInput = document.getElementById("comment-text");
+            const toast = document.getElementById("custom-toast");
             
-            // Create a unique key for this specific media item in local storage
             const storageKey = 'hasCommented_' + window.currentMediaId;
 
-            // Check if this browser already left a comment on this media
+            // Helper function to handle showing the sleek toast notification
+            function showToast(message) {
+                if (toast) {
+                    toast.innerText = message;
+                    toast.style.display = "block";
+                    // Automatically hide it after 3 seconds
+                    setTimeout(() => {
+                        toast.style.display = "none";
+                    }, 3000);
+                }
+            }
+
+            // 1. Check if this browser already left a comment on this media
             if (localStorage.getItem(storageKey) === 'true') {
-                alert("Thank you for commenting! You've already shared your thoughts on this one.");
-                textInput.value = ""; // Clear input
+                showToast("You've already shared your thoughts on this one!");
+                textInput.value = ""; 
                 return; 
             }
 
             const name = nameInput.value.trim() || "AnonymousCastastian";
             const text = textInput.value.trim();
 
-            if (!text) return; // Prevent empty posts
+            if (!text) return; 
 
             const commentsRef = ref(db, `mediaStats/${window.currentMediaId}/comments`);
             const newCommentRef = push(commentsRef);
             
             set(newCommentRef, { name: name, text: text }).then(() => {
-                // Save to browser memory that they have successfully commented on this item
                 localStorage.setItem(storageKey, 'true');
                 
-                // Alert the user with your thank you message
-                alert("Thank you for commenting!");
+                // 2. Trigger the custom toast message instead of the browser pop-up
+                showToast("Thank you for commenting!");
                 
-                textInput.value = ""; // Clear out input bar cleanly
+                textInput.value = ""; 
             });
         }
 
@@ -1189,5 +1200,8 @@ Castastics is a world of large casts of unique characters and make all dreams co
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 </script>
+    <div id="custom-toast" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #ffcc00; color: #000; padding: 12px 24px; border-radius: 25px; font-family: sans-serif; font-weight: bold; font-size: 0.95rem; box-shadow: 0px 4px 15px rgba(0,0,0,0.5); z-index: 99999; text-align: center; min-width: 250px;">
+    Thank you for commenting!
+    </div>
 </body>
 </html>
