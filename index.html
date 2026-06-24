@@ -169,6 +169,101 @@
 </head>
 <body>
 
+
+    <div id="castastics-interface">
+
+  <nav id="app-sidebar">
+    <div class="sidebar-logo">
+      <h2>The Castastics</h2>
+      <p>Official Channel</p>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-item active">📺 Home / Streams</a></li>
+      <li><a href="#" class="nav-item">👕 Merch & Toys</a></li>
+      <li><a href="#" class="nav-item">📖 About the Universe</a></li>
+      <li><a href="#" class="nav-item">📩 Contact & Orders</a></li>
+    </ul>
+    
+    <div class="sidebar-socials">
+      <a href="https://www.facebook.com/thedavidartsy/" target="_blank">🌐 FB</a>
+      <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">📸 IG</a>
+      <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">🎮 TW</a>
+    </div>
+  </nav>
+
+  <div id="main-content">
+    
+    </div> </div> ```
+
+---
+
+### Step 2: Add the Sidebar CSS
+Go to the very bottom of your existing CSS styles (inside your `<style>` tags) and paste these new rules. These styles use a `flex` layout, which pushes your existing streaming section to the right to make perfect room for the sidebar on desktops.
+
+```css
+/* Layout Wrapper to align the sidebar and your content side-by-side */
+#castastics-interface {
+    display: flex;
+    min-height: 100vh;
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+/* Sidebar Box Styling */
+#app-sidebar {
+    width: 260px;
+    background: #141414;
+    border-right: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+/* Sidebar Header Text */
+.sidebar-logo h2 { margin: 0; font-size: 1.4rem; color: #f39c12; }
+.sidebar-logo p { margin: 5px 0 25px 0; font-size: 0.8rem; color: #777; }
+
+/* Menu List Options */
+.nav-menu { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+.nav-menu li { margin-bottom: 12px; }
+.nav-item {
+    display: block;
+    padding: 12px 15px;
+    color: #b3b3b3;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+/* When you hover over an item or when it's selected */
+.nav-item:hover, .nav-item.active {
+    background: #222222;
+    color: #f39c12;
+    padding-left: 20px;
+}
+
+/* Social Icons Area at the Bottom */
+.sidebar-socials { display: flex; gap: 15px; padding-top: 20px; border-top: 1px solid #262626; }
+.sidebar-socials a { color: #777; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.sidebar-socials a:hover { color: #f39c12; }
+
+/* This shifts your existing streaming layout over so the sidebar doesn't block it */
+#main-content {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 40px;
+}
+
+/* Quick fix for smaller screens so it doesn't break your grid layout */
+@media (max-width: 768px) {
+    #castastics-interface { flex-direction: column; }
+    #app-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #262626; }
+    #main-content { margin-left: 0; padding: 20px; }
+}
+
     <div class="channel-banner"></div>
 
     <div class="container">
