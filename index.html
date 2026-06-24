@@ -348,94 +348,102 @@
         .contact-email a:hover {
             text-decoration: underline;
         }
-/* --- VISUAL LINKTREE PREVIEW PAGE --- */
-        .linktree-header {
+/* --- NATIVE LINKTREE-STYLE SHOPPING GRID --- */
+        .merch-shop-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 15px 60px;
             text-align: center;
-            padding: 30px 0 10px;
         }
-        .linktree-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 3px solid #ffcc00;
-            object-fit: cover;
-            background: #1a1a1a;
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+        .shop-header {
+            margin-bottom: 30px;
         }
-        .linktree-username {
+        .shop-header h2 {
             color: #ffcc00;
-            font-size: 1.4rem;
-            margin: 10px 0 5px;
+            font-size: 1.6rem;
             text-transform: uppercase;
+            margin: 0 0 5px 0;
         }
-        .linktree-subtitle {
+        .shop-header p {
             color: #aaa;
-            font-size: 0.85rem;
             font-family: sans-serif;
-            margin: 0 0 30px;
+            font-size: 0.85rem;
+            margin: 0;
         }
-        
-        /* Premium Grid Cards */
-        .merch-preview-grid {
-            display: flex;
-            flex-direction: column;
+
+        /* The 2-column visual grid matching your screenshot */
+        .merch-display-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            max-width: 600px;
-            margin: 0 auto 50px;
-            padding: 0 15px;
+            padding: 0;
         }
-        .merch-preview-card {
+
+        /* Clickable Linktree Grid Card */
+        .merch-shop-card {
             background: #111111;
             border: 2px solid #222;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
             text-decoration: none;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.2s ease, border-color 0.2s ease;
-            display: block;
         }
-        .merch-preview-card:hover {
+        .merch-shop-card:hover {
             transform: translateY(-3px);
             border-color: #ffcc00;
         }
-        .merch-banner-placeholder {
+
+        /* Visual placeholder box so you don't need hosted images */
+        .merch-image-placeholder {
             width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #222 0%, #111 100%);
-            border-bottom: 2px solid #ffcc00;
+            height: 180px;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border-bottom: 2px solid #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffcc00;
-            font-size: 2.5rem;
-            opacity: 0.8;
-        }
-        .merch-card-body {
-            padding: 20px;
-            text-align: left;
-        }
-        .merch-card-body h3 {
-            margin: 0 0 6px 0;
-            color: #ffcc00;
-            font-size: 1.25rem;
-            text-transform: uppercase;
-        }
-        .merch-card-body p {
-            margin: 0 0 15px 0;
-            color: #ccc;
             font-family: sans-serif;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-        .merch-card-btn {
-            background: #ffcc00;
-            color: #000;
-            text-align: center;
-            padding: 12px;
-            border-radius: 8px;
+            color: #444;
             font-weight: bold;
-            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
             text-transform: uppercase;
         }
+
+        /* Text details matching the screenshot layout */
+        .merch-details-box {
+            padding: 15px;
+            text-align: center;
+            background: #111111;
+            flex-grow: 1;
+        }
+        .merch-details-box h3 {
+            margin: 0 0 5px 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .merch-details-box p {
+            margin: 0;
+            color: #ffcc00;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+        }
+
+        /* Drops to 1 column cleanly on narrow phone screens */
+        @media (max-width: 600px) {
+            .merch-display-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .merch-image-placeholder {
+                height: 150px;
+            }
+            }
+
     </style>
 </head>
 <body>
@@ -816,83 +824,75 @@
 
     </div> 
 
-    <div id="page-merch" class="app-page" style="display: none;">
-        <div class="container">
+<div id="page-merch" class="app-page" style="display: none;">
+        <div class="merch-shop-container">
             
-            <div class="linktree-header">
-                <img src="pfp.jpg" class="linktree-avatar" alt="David Artsy">
-                <div class="linktree-username">David Artsy Merch</div>
-                <div class="linktree-subtitle">Official CastasticVerse Collections</div>
+            <div class="shop-header">
+                <h2>Official Collections</h2>
+                <p>Tap a collection to view full product details on Linktree</p>
             </div>
 
-            <div class="merch-preview-grid">
+            <div class="merch-display-grid">
                 
-                <a href="https://tr.ee/RHswus" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">💿</div>
-                    <div class="merch-card-body">
-                        <h3>Castastics Physical CDS</h3>
-                        <p>Browse official custom physical cds of david artsy's music from the collection.</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/RHswus" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Media</div>
+                    <div class="merch-details-box">
+                        <h3>Physical CDs</h3>
+                        <p>Music Collection</p>
                     </div>
                 </a>
 
-                <a href="https://tr.ee/UQf06Y" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">📀</div>
-                    <div class="merch-card-body">
-                        <h3>Movie DVDS</h3>
-                        <p>Buy physical copy of each dvds of the Castastics movies now..</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/UQf06Y" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Movies</div>
+                    <div class="merch-details-box">
+                        <h3>Movie DVDs</h3>
+                        <p>Film Collection</p>
                     </div>
                 </a>
 
-                <a href="https://tr.ee/ddI7sQ" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">🧸</div>
-                    <div class="merch-card-body">
-                        <h3>Castastics Toys</h3>
-                        <p>Explore the full category of toys of each Castastic character and have them at your home.</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/ddI7sQ" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Toys</div>
+                    <div class="merch-details-box">
+                        <h3>Toys</h3>
+                        <p>12 Products</p>
                     </div>
                 </a>
 
-                <a href="https://tr.ee/zWry2k" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">🎮</div>
-                    <div class="merch-card-body">
-                        <h3>Game DVDS</h3>
-                        <p>Grab a physical copy of the castastic games today.</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/zWry2k" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Games</div>
+                    <div class="merch-details-box">
+                        <h3>Game DVDs</h3>
+                        <p>Gaming Collection</p>
                     </div>
                 </a>
 
-                <a href="https://tr.ee/HJEq4X" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">📚</div>
-                    <div class="merch-card-body">
-                        <h3>Physical Books</h3>
-                        <p>Grab and read the book series today.</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/HJEq4X" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Apparel</div>
+                    <div class="merch-details-box">
+                        <h3>Books</h3>
+                        <p>13 Products</p>
                     </div>
                 </a>
 
-                <a href="https://tr.ee/JqRbaj" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">🎮</div>
-                    <div class="merch-card-body">
-                        <h3>Physical Comic Books</h3>
-                        <p>Grab physical copies of the castastics comic series today.</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/JqRbaj" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Metaverse</div>
+                    <div class="merch-details-box">
+                        <h3>Comic Books</h3>
+                        <p>Read the series</p>
                     </div>
                 </a>
 
-                <a href="https://tr.ee/WY1mjL" target="_blank" class="merch-preview-card">
-                    <div class="merch-banner-placeholder">👕</div>
-                    <div class="merch-card-body">
-                        <h3>Clothing, Stickers, Items, Canvases</h3>
-                        <p>Castastics merchandise. shirts, pants, bags, shoes, stickers, david artsy's artwork prints, all here!</p>
-                        <div class="merch-card-btn">Shop Collection</div>
+                <a href="https://tr.ee/WY1mjL" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-placeholder">Castastics Merch</div>
+                    <div class="merch-details-box">
+                        <h3>Merchandise</h3>
+                        <p>Clothing, Stickers, Bags, Etc</p>
                     </div>
                 </a>
 
             </div>
         </div>
-    </div>
+</div>
 
     <div id="page-contact" class="app-page" style="display: none;">
         <div class="container">
@@ -900,7 +900,7 @@
             <div class="contact-container">
                 <h2 style="color:#ffcc00; margin-top:0;">GET IN TOUCH</h2>
                 <p style="color:#aaa; font-family:sans-serif; font-size:0.9rem; margin-bottom:25px;">
-                    For orders, design assignments, or business details, shoot a message directly below.
+                    For orders, inquires, or a question, shoot a message directly below.
                 </p>
                 <a href="https://wa.me/18683917461" target="_blank" class="contact-btn">Contact on WhatsApp</a>
                 <div class="contact-email">
