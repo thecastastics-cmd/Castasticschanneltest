@@ -804,10 +804,30 @@ Castastics is a world of large casts of unique characters and make all dreams co
     </script>
 
                 <script type="module">
+        import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // Connect to your existing database instance
-        const db = getDatabase();
+        // Your exact same config so this separate script can access Firebase safely
+        const firebaseConfig = {
+            apiKey: "AIzaSyBBx7S1tbTO02Y0TfSYodqJWRvLfQwq_Qs",
+            authDomain: "castastics-movies.firebaseapp.com",
+            databaseURL: "https://castastics-movies-default-rtdb.firebaseio.com",
+            projectId: "castastics-movies",
+            storageBucket: "castastics-movies.firebasestorage.app",
+            messagingSenderId: "194457932457",
+            appId: "1:194457932457:web:72e3372596f4f248a30fb8",
+            measurementId: "G-W59DD5SNZ6"
+        };
+
+        // Initialize Firebase safely for this module
+        let app;
+        try {
+            app = getApp(); // Try to use the already initialized app
+        } catch (e) {
+            app = initializeApp(firebaseConfig); // If not found, initialize it here
+        }
+
+        const db = getDatabase(app);
         const viewRef = ref(db, 'viewCount');
         const viewElement = document.getElementById("view-count-text");
 
@@ -820,15 +840,15 @@ Castastics is a world of large casts of unique characters and make all dreams co
             }
         });
 
-        // 2. Function to add +1 view when a dropdown is opened
+        // 2. Function to add +1 view when a video or episode is selected
         function registerVideoView() {
             runTransaction(viewRef, (currentValue) => {
-                // If database is empty, starts at your current count, otherwise adds 1
+                // If database node doesn't exist yet, starts at your baseline count
                 return (currentValue || 1042583) + 1;
             });
         }
 
-        // Send the function to the global window so your HTML onclicks can see it
+        // Send the function to the global window scope so your HTML onclicks/onchanges can find it
         window.registerVideoView = registerVideoView;
                 </script>
 
