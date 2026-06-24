@@ -256,55 +256,63 @@
         .footer-socials a { color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: color 0.2s; }
         .footer-socials a:hover { color: #ffcc00; }
         .copyright { color: #555; font-size: 0.8rem; margin: 0; }
-        /* --- LINKTREE STYLE MERCH CARDS --- */
-        .linktree-grid {
+        /* --- VISUAL STACKED LAYOUT WITH CUSTOM IMAGES --- */
+        .tube-shop-layout {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 10px 80px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 0 15px;
+            gap: 35px;
         }
-        .linktree-card {
-            background: #111111;
-            border: 2px solid #222;
-            border-radius: 12px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-decoration: none;
-            transition: all 0.2s ease;
+        .collection-shelf {
+            width: 100%;
             text-align: left;
         }
-        .linktree-card:hover {
-            border-color: #ffcc00;
-            transform: translateY(-2px);
-            background: #161616;
-        }
-        .linktree-img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #ffcc00;
-            flex-shrink: 0;
-        }
-        .linktree-info {
-            flex-grow: 1;
-        }
-        .linktree-info h3 {
-            margin: 0 0 5px 0;
+        .shelf-title {
             color: #ffcc00;
             font-size: 1.2rem;
             text-transform: uppercase;
+            margin: 0 0 10px 5px;
+            font-weight: bold;
         }
-        .linktree-info p {
+        .merch-shop-card {
+            background: #111111;
+            border: 2px solid #222;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: border-color 0.2s;
+        }
+        .merch-shop-card:hover {
+            border-color: #ffcc00;
+        }
+        .merch-image-cover {
+            width: 100%;
+            height: 280px; /* Gives your custom artwork plenty of room */
+            background: #000;
+        }
+        .merch-image-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .merch-details-box {
+            padding: 15px;
+            background: #111;
+            border-top: 1px solid #222;
+        }
+        .merch-details-box h3 {
+            margin: 0 0 4px 0;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        .merch-details-box p {
             margin: 0;
-            color: #aaa;
+            color: #ffcc00;
             font-size: 0.85rem;
             font-family: sans-serif;
-            line-height: 1.4;
         }
 
         /* --- CONTACT BLOCK STYLES --- */
@@ -775,37 +783,93 @@
             
             <div class="collection-shelf">
                 <div class="shelf-title">Physical CDs</div>
-                <iframe src="https://tr.ee/RHswus" class="live-shelf-portal" title="CDs" loading="lazy"></iframe>
+                <a href="https://tr.ee/RHswus" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_cds.jpg" alt="Physical CDs">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Physical CDs</h3>
+                        <p>Music Collection</p>
+                    </div>
+                </a>
             </div>
 
             <div class="collection-shelf">
                 <div class="shelf-title">Movie DVDs</div>
-                <iframe src="https://tr.ee/UQf06Y" class="live-shelf-portal" title="DVDs" loading="lazy"></iframe>
+                <a href="https://tr.ee/UQf06Y" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_dvds.jpg" alt="Movie DVDs">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Movie DVDs</h3>
+                        <p>Film Collection</p>
+                    </div>
+                </a>
             </div>
 
             <div class="collection-shelf">
                 <div class="shelf-title">Castastics Toys</div>
-                <iframe src="https://tr.ee/ddI7sQ" class="live-shelf-portal" title="Toys" loading="lazy"></iframe>
+                <a href="https://tr.ee/ddI7sQ" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_toys.jpg" alt="Castastics Toys">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Castastics Toys</h3>
+                        <p>12 Products</p>
+                    </div>
+                </a>
             </div>
 
             <div class="collection-shelf">
                 <div class="shelf-title">Game DVDs</div>
-                <iframe src="https://tr.ee/zWry2k" class="live-shelf-portal" title="Games" loading="lazy"></iframe>
+                <a href="https://tr.ee/zWry2k" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_games.jpg" alt="Game DVDs">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Game DVDs</h3>
+                        <p>Gaming Collection</p>
+                    </div>
+                </a>
             </div>
 
             <div class="collection-shelf">
                 <div class="shelf-title">Physical Books</div>
-                <iframe src="https://tr.ee/HJEq4X" class="live-shelf-portal" title="Books" loading="lazy"></iframe>
+                <a href="https://tr.ee/HJEq4X" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_books.jpg" alt="Physical Books">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Physical Books</h3>
+                        <p>13 Products</p>
+                    </div>
+                </a>
             </div>
 
             <div class="collection-shelf">
                 <div class="shelf-title">Physical Comic Books</div>
-                <iframe src="https://tr.ee/JqRbaj" class="live-shelf-portal" title="Comics" loading="lazy"></iframe>
+                <a href="https://tr.ee/JqRbaj" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_comics.jpg" alt="Physical Comic Books">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Physical Comic Books</h3>
+                        <p>Read the series</p>
+                    </div>
+                </a>
             </div>
 
             <div class="collection-shelf">
                 <div class="shelf-title">Merchandise</div>
-                <iframe src="https://tr.ee/WY1mjL" class="live-shelf-portal" title="Clothing, Stickers, Artworks, Bags etc" loading="lazy"></iframe>
+                <a href="https://tr.ee/WY1mjL" target="_blank" class="merch-shop-card">
+                    <div class="merch-image-cover">
+                        <img src="merch_general.jpg" alt="Merchandise">
+                    </div>
+                    <div class="merch-details-box">
+                        <h3>Merchandise</h3>
+                        <p>Clothing, Stickers, Artworks, Bags etc</p>
+                    </div>
+                </a>
             </div>
 
         </div>
