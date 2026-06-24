@@ -423,13 +423,35 @@
             letter-spacing: 1px;
             margin: 0;
         }
+
+        /* --- RESPONSIVE CORNER ART STYLING --- */
+        .corner-art {
+            position: fixed;
+            height: auto;
+            pointer-events: none;
+            opacity: 0.95;
+            z-index: 9999; /* Sits on top for large screens */
+        }
+        .top-left { top: 0; left: 0; width: 180px; }
+        .top-right { top: 0; right: 0; width: 180px; }
+        .bottom-left { bottom: 0; left: 0; width: 180px; }
+        .bottom-right { bottom: 0; right: 0; width: 180px; }
+
+        /* 📱 MOBILE FIX: Shrunk down and tucked behind the text */
+        @media (max-width: 768px) {
+            .corner-art {
+                width: 110px; /* Thins the paper down so the characters fit perfectly */
+                z-index: -1;  /* Pushes them back so they don't block the banner or buttons */
+                opacity: 0.8;  /* Blends them slightly into the dark theme background */
+            }
+        }
     </style>
 </head>
 <body>
-<img src="ripped_top_left.png" alt="" style="position: fixed; top: 0; left: 0; width: 180px; height: auto; z-index: 9999; pointer-events: none; opacity: 0.95;">
-    <img src="ripped_top_right.png" alt="" style="position: fixed; top: 0; right: 0; width: 180px; height: auto; z-index: 9999; pointer-events: none; opacity: 0.95;">
-    <img src="ripped_bottom_left.png" alt="" style="position: fixed; bottom: 0; left: 0; width: 180px; height: auto; z-index: 9999; pointer-events: none; opacity: 0.95;">
-    <img src="ripped_bottom_right.png" alt="" style="position: fixed; bottom: 0; right: 0; width: 180px; height: auto; z-index: 9999; pointer-events: none; opacity: 0.95;">
+<img src="ripped_top_left.png" alt="" class="corner-art top-left">
+    <img src="ripped_top_right.png" alt="" class="corner-art top-right">
+    <img src="ripped_bottom_left.png" alt="" class="corner-art bottom-left">
+    <img src="ripped_bottom_right.png" alt="" class="corner-art bottom-right">
     <button class="menu-toggle" onclick="toggleSidebar()">
         <span></span>
         <span></span>
