@@ -230,9 +230,28 @@ Go to the very bottom of your existing CSS styles (inside your `<style>` tags) a
 
 /* Quick fix for smaller screens so it doesn't break your grid layout */
 @media (max-width: 768px) {
-    #castastics-interface { flex-direction: column; }
-    #app-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #262626; }
-    #main-content { margin-left: 0; padding: 20px; }
+    /* 1. Force the main wrapper to act as a side-by-side row */
+#castastics-interface {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* 2. Remove "position: fixed" so the sidebar physically pushes the content over */
+#app-sidebar {
+    width: 260px;
+    min-width: 260px; /* Prevents it from shrinking */
+    background: #141414;
+    border-right: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Removed position: fixed so it takes up actual physical space on the left */
 }
         
     </style>
