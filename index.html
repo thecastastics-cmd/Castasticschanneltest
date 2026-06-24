@@ -460,6 +460,43 @@
             <a href="https://open.spotify.com/artist/64kJiIpqeckLgcpOXd2eVT?si=jR_qscNdTqSAcTR9DfzqSw" target="_blank">🎵 Stream Music</a>
             <a href="https://apkpure.com/developer?id=24485827" target="_blank">🎮 Play Castastics Games</a>
 
+                    <div id="subscriber-perks-box" style="max-width: 800px; margin: 20px auto; padding: 20px; background: #111; border: 2px dashed #444; border-radius: 8px; font-family: sans-serif; text-align: center;">
+    
+    <div id="perks-locked" style="display: block; padding: 20px;">
+        <span style="font-size: 2rem;">🔒</span>
+        <h3 style="color: #ffcc00; margin: 10px 0 5px 0;">Subscriber Exclusive Content Locked</h3>
+        <p style="color: #aaa; font-size: 0.9rem; margin: 0;">Hit the yellow **SUBSCRIBE** button above to unlock premium local rewards!</p>
+    </div>
+
+    <div id="perks-unlocked" style="display: none;">
+        <h2 style="color: #ffcc00; margin-top: 0; font-size: 1.4rem;">🎉 THANK YOU FOR SUBSCRIBING! 🎉</h2>
+        <p style="color: #eee; font-size: 0.95rem; margin-bottom: 20px;">You've unlocked exclusive access to David Artsy's premium subscriber services:</p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+            
+            <div style="background: #1c1c1c; border: 1px solid #ffcc00; border-radius: 6px; padding: 15px; width: 280px; text-align: center;">
+                <img src="images/chicken_chips.jpg" alt="Chicken and Chips" style="width: 100%; height: 160px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;">
+                <h4 style="color: #fff; margin: 5px 0;">Trini Chicken & Chips Combo</h4>
+                <p style="color: #ccc; font-size: 0.85rem; margin: 0 0 10px 0;">Get a hot, fresh box of chicken & chips with a cold drink delivered straight to your home.</p>
+                <span style="display: block; background: #333; color: #ffcc00; font-size: 0.75rem; font-weight: bold; padding: 3px; border-radius: 3px;">🇹🇹 TRINIDAD ONLY</span>
+            </div>
+
+            <div style="background: #1c1c1c; border: 1px solid #ffcc00; border-radius: 6px; padding: 15px; width: 280px; text-align: center;">
+                <img src="images/david_singing.jpg" alt="David Artsy Singing" style="width: 100%; height: 160px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;">
+                <h4 style="color: #fff; margin: 5px 0;">Special Occasion Serenade</h4>
+                <p style="color: #ccc; font-size: 0.85rem; margin: 0 0 10px 0;">Want me to perform live or record a custom romantic track for a birthday or special event?</p>
+                <span style="display: block; background: #333; color: #ffcc00; font-size: 0.75rem; font-weight: bold; padding: 3px; border-radius: 3px;">🎤 CUSTOM PERFORMANCE</span>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 25px;">
+            <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 8px;">To claim your rewards or book a service, tap below to contact me directly:</p>
+            <a href="https://wa.me/18683917461" target="_blank" style="display: inline-block; background: #ffcc00; color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 4px; font-size: 0.95rem;">Contact David Artsy to Claim</a>
+        </div>
+    </div>
+                    </div>
+
                 </div>
                 <button class="sub-btn" id="sub-button">Subscribe</button>
             </div>
@@ -818,21 +855,66 @@ Castastics is a world of large casts of unique characters and make all dreams co
             });
             
             // Toggle the visual state and update the memory based on what just happened
+            const toast = document.getElementById("custom-toast");
+            
+            // Tiny helper function to show your smooth yellow bubble message
+            function showSubToast(message) {
+                if (toast) {
+                    toast.innerText = message;
+                    toast.style.display = "block";
+                    setTimeout(() => {
+                        toast.style.display = "none";
+                    }, 3000);
+                }
+            }
+
             if (alreadySubbed) {
                 subButton.classList.remove('subscribed');
                 subButton.innerText = "Subscribe";
                 localStorage.setItem('isSubscribed', 'false');
+                
+                // Show clean toast notification (No alerts!)
+                showSubToast("Unsubscribed successfully.");
             } else {
                 subButton.classList.add('subscribed');
                 subButton.innerText = "✓ Subscribed";
                 localStorage.setItem('isSubscribed', 'true');
+                
+                // Show clean toast notification (No alerts!)
+                showSubToast("Subscribed successfully!");
             }
+
+            // 🌟 UNLOCK/LOCK YOUR PERKS INSTANTLY
+            checkSubscriberPerks();
         }
 
         // Your existing sub button event listener remains clean inside the script
         if (subButton) {
             subButton.addEventListener("click", handleSubscribe);
         }
+
+        // Function to handle switching the perks view smoothly
+        function checkSubscriberPerks() {
+            const lockedBox = document.getElementById("perks-locked");
+            const unlockedBox = document.getElementById("perks-unlocked");
+            const mainBox = document.getElementById("subscriber-perks-box");
+
+            // Check if user is marked as subscribed in localStorage
+            if (localStorage.getItem("isSubscribed") === "true") {
+                if (lockedBox) lockedBox.style.display = "none";
+                if (unlockedBox) unlockedBox.style.display = "block";
+                if (mainBox) mainBox.style.border = "1px solid #ffcc00"; // Sleek solid boundary when active
+            } else {
+                if (lockedBox) lockedBox.style.display = "block";
+                if (unlockedBox) unlockedBox.style.display = "none";
+                if (mainBox) mainBox.style.border = "2px dashed #444";
+            }
+        }
+
+        // Call it immediately on page load to check their subscription status right away
+        window.addEventListener("DOMContentLoaded", () => {
+            checkSubscriberPerks();
+        });
     </script>
 
                 <script type="module">
