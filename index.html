@@ -396,26 +396,31 @@
         .live-shelf-portal:hover {
             border-color: #ffcc00;
         }
-/* --- NAV LOGO IMAGE STYLING --- */
+/* --- NAV LOGO IMAGE STYLING (FIXED SIZE) --- */
         .nav-logo-container {
             width: 100%;
-            padding: 15px 10px;
+            padding: 10px 5px;
             text-align: center;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .nav-logo-img {
-            max-width: 85%; /* Keeps it perfectly bounded inside the sidebar */
-            height: auto;
+            width: auto;
+            max-width: 140px; /* Restricts it from getting wider than your mobile menu */
+            max-height: 70px;  /* Keeps the height from taking over the screen */
             display: block;
             margin: 0 auto;
             object-fit: contain;
         }
         .nav-subtitle-fix {
             color: #888;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 5px;
+            margin-top: 4px;
             display: block;
         }
     </style>
