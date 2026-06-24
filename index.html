@@ -488,7 +488,7 @@ Castastics is a world of large casts of unique characters and make all dreams co
             <div id="player-container"></div>
             <div id="now-playing">SELECT A STORY TO START</div>
         </div>
-<div id="media-interaction-box" style="max-width: 800px; margin: 20px auto; padding: 15px; background: #111; border-radius: 8px; border: 1px solid #222; font-family: sans-serif;">
+<div id="media-interaction-box" style="display: none; max-width: 800px; margin: 20px auto; padding: 15px; background: #111; border-radius: 8px; border: 1px solid #222; font-family: sans-serif;">
             
             <div class="rating-container" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px;">
                 <div>
@@ -956,6 +956,8 @@ Castastics is a world of large casts of unique characters and make all dreams co
         // Load media data whenever a user switches movies or episodes
         function loadMediaInteraction(mediaId) {
             window.currentMediaId = mediaId;
+            const box = document.getElementById("media-interaction-box");
+            if (box) box.style.display = "block";
             
             // Clean up old active listeners
             if (unsubscribeComments) unsubscribeComments();
@@ -1051,10 +1053,7 @@ Castastics is a world of large casts of unique characters and make all dreams co
         window.submitRating = submitRating;
         window.submitComment = submitComment;
 
-        // Auto-load Movie 1 values on absolute page launch initialization
-        window.addEventListener("DOMContentLoaded", () => {
-            loadMediaInteraction("movie1");
-        });
+        
                 </script>
 
     </div> 
