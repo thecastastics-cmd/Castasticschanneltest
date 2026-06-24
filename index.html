@@ -165,10 +165,122 @@
     height: 100%;
     border: none;
                }
+
+        /* --- SIDEBAR TOGGLE SYSTEM --- */
+        #castastics-interface {
+            display: flex;
+            min-height: 100vh;
+            background-color: #000000;
+            position: relative;
+        }
+
+        /* The hidden side panel drawer */
+        #app-sidebar {
+            position: fixed;
+            top: 0;
+            left: -260px; /* Hidden off-screen by default */
+            width: 260px;
+            height: 100vh;
+            background: #111111;
+            border-right: 2px solid #ffcc00;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 20px 20px; /* Extra top padding for toggle button room */
+            box-sizing: border-box;
+            text-align: left;
+            z-index: 1000;
+            transition: left 0.3s ease;
+        }
+
+        /* Dynamic active state when open */
+        #app-sidebar.open {
+            left: 0;
+        }
+
+        /* Main content wrapper updates */
+        #main-content { 
+            flex-grow: 1; 
+            width: 100%; 
+            overflow-x: hidden;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Pushes content smoothly over on desktop screens when sidebar opens */
+        @media (min-width: 769px) {
+            #castastics-interface.sidebar-active #main-content {
+                margin-left: 260px;
+                width: calc(100% - 260px);
+            }
+        }
+
+        /* THE HAMBURGER BUTTON */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            background: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #000;
+            transition: 0.3s;
+        }
+
+        /* SIDEBAR INTERFACE TEXT & MENUS */
+        .sidebar-logo h2 { margin: 0; font-size: 1.3rem; color: #ffcc00; text-transform: uppercase; }
+        .sidebar-logo p { margin: 5px 0 25px 0; font-size: 0.8rem; color: #aaa; font-family: sans-serif; }
+        .nav-menu { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .nav-menu li { margin-bottom: 12px; }
+        .nav-item { display: block; padding: 12px 15px; color: #fff; text-decoration: none; border-radius: 6px; font-size: 0.9rem; font-family: sans-serif; transition: all 0.2s; }
+        .nav-item:hover, .nav-item.active { background: #ffcc00; color: #000; font-weight: bold; }
+        
+        /* --- INTEGRATED FOOTER AREA --- */
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 2px solid #1a1a1a;
+            background: #0a0a0a;
+            font-family: sans-serif;
+        }
+        .footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; }
+        .footer-socials a { color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: color 0.2s; }
+        .footer-socials a:hover { color: #ffcc00; }
+        .copyright { color: #555; font-size: 0.8rem; margin: 0; }
     </style>
 </head>
 <body>
 
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div id="castastics-interface">
+
+        <nav id="app-sidebar">
+            <div class="sidebar-logo">
+                <h2>The Castastics</h2>
+                <p>Official Navigation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-item active">Home</a></li>
+                <li><a href="https://thecastastics.netlify.app/merch" target="_blank" class="nav-item">Merch</a></li>
+                <li><a href="https://wa.me/18683917461" target="_blank" class="nav-item">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div id="main-content">
     <div class="channel-banner"></div>
 
     <div class="container">
@@ -518,6 +630,25 @@
         if (subButton) {
             subButton.addEventListener("click", handleSubscribe);
         }
+
+        <footer>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/thedavidartsy/" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">Instagram</a>
+                <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">Twitch</a>
+            </div>
+            <p class="copyright">&copy; 2026 David Artsy. All Rights Reserved.</p>
+        </footer>
+
+    </div> </div> <script>
+    // Toggle action handler
+    function toggleSidebar() {
+        var sidebar = document.getElementById('app-sidebar');
+        var wrapper = document.getElementById('castastics-interface');
+        
+        sidebar.classList.toggle('open');
+        wrapper.classList.toggle('sidebar-active');
+    }
     </script>
 </body>
         </html>
