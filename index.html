@@ -253,43 +253,107 @@ Go to the very bottom of your existing CSS styles (inside your `<style>` tags) a
     box-sizing: border-box;
     /* Removed position: fixed so it takes up actual physical space on the left */
 }
-        
+   ### Step 2: Add the Ultimate Responsive Style Fix
+Go into your `<style>` block, scroll all the way to the bottom right before `</style>`, and paste this responsive code. It automatically checks if you are on a phone or a computer, adapting the menu perfectly:
+
+```css
+/* --- UNIVERSAL INTERFACE LAYOUT --- */
+#castastics-interface {
+    display: flex;
+    min-height: 100vh;
+    background-color: #000000;
+}
+
+/* SIDEBAR: Only displays as a side column on big desktop screens */
+#app-sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: #111111;
+    border-right: 2px solid #ffcc00;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar-logo h2 { margin: 0; font-size: 1.3rem; color: #ffcc00; text-transform: uppercase; }
+.sidebar-logo p { margin: 5px 0 25px 0; font-size: 0.8rem; color: #aaa; }
+
+.nav-menu { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+.nav-menu li { margin-bottom: 12px; }
+.nav-item {
+    display: block;
+    padding: 12px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+    background: #ffcc00;
+    color: #000;
+    font-weight: bold;
+}
+
+.sidebar-socials { display: flex; gap: 15px; padding-top: 20px; border-top: 1px solid #333; }
+.sidebar-socials a { color: #aaa; text-decoration: none; font-size: 0.9rem; }
+.sidebar-socials a:hover { color: #ffcc00; }
+
+#main-content {
+    flex-grow: 1;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- MOBILE SPECIFIC PHONE OVERRIDES (Under 768px wide) --- */
+@media (max-width: 768px) {
+    #castastics-interface {
+        flex-direction: column; /* Stacks layout safely vertical */
+    }
+    
+    /* Hides the desktop column sidebar entirely on mobile screens */
+    #app-sidebar {
+        display: none !important;
+    }
+    
+    /* Pushes content up slightly at the bottom so mobile user scroll doesn't hit screen edge */
+    body {
+        padding-bottom: 40px !important;
+    }
+    }     
     </style>
 </head>
 <body>
 
+  <div id="castastics-interface">
 
-    <div id="castastics-interface">
+    <nav id="app-sidebar">
+      <div class="sidebar-logo">
+        <h2>The Castastics</h2>
+        <p>Official Channel</p>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#" class="nav-item active">📺 Home / Streams</a></li>
+        <li><a href="https://thecastastics.netlify.app/merch" target="_blank" class="nav-item">👕 Merch & Toys</a></li>
+        <li><a href="#" class="nav-item">📖 About the Universe</a></li>
+        <li><a href="https://wa.me/18683917461" target="_blank" class="nav-item">📩 Contact & Orders</a></li>
+      </ul>
+      
+      <div class="sidebar-socials">
+        <a href="https://www.facebook.com/thedavidartsy/" target="_blank">🌐 FB</a>
+        <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">📸 IG</a>
+        <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">🎮 TW</a>
+      </div>
+    </nav>
 
-  <nav id="app-sidebar">
-    <div class="sidebar-logo">
-      <h2>The Castastics</h2>
-      <p>Official Channel</p>
-    </div>
-    <ul class="nav-menu">
-      <li><a href="#" class="nav-item active">📺 Home / Streams</a></li>
-      <li><a href="#" class="nav-item">👕 Merch & Toys</a></li>
-      <li><a href="#" class="nav-item">📖 About the Universe</a></li>
-      <li><a href="#" class="nav-item">📩 Contact & Orders</a></li>
-    </ul>
     
-    <div class="sidebar-socials">
-      <a href="https://www.facebook.com/thedavidartsy/" target="_blank">🌐 FB</a>
-      <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">📸 IG</a>
-      <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">🎮 TW</a>
-    </div>
-  </nav>
 
-  <div id="main-content">
-    
-    </div> </div> ```
+          ```
 
 ---
 
 
-    <div class="channel-banner"></div>
-
-    <div class="container">
         
         <div class="channel-header">
             <img src="pfp.jpg" class="channel-pfp" alt="Channel PFP"> <div class="channel-details">
