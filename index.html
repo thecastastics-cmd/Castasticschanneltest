@@ -725,8 +725,10 @@
             subButton.addEventListener("click", handleSubscribe);
         }
     </script>
-</select>
-                </div> </div> </div> </div> <div id="page-merch" class="app-page" style="display: none;">
+
+    </div> 
+
+    <div id="page-merch" class="app-page" style="display: none;">
         <div class="container">
             <div class="section-title">OFFICIAL MERCH COLLECTIONS</div>
             <div class="linktree-grid">
@@ -751,7 +753,6 @@
         </div>
     </div>
 
-
     <div id="page-contact" class="app-page" style="display: none;">
         <div class="container">
             <div class="section-title">CONTACT & INQUIRIES</div>
@@ -768,6 +769,7 @@
             </div>
         </div>
     </div>
+
     <footer>
         <div class="footer-socials">
             <a href="https://www.facebook.com/thedavidartsy/" target="_blank">Facebook</a>
@@ -778,13 +780,45 @@
     </footer>
 
 </div> </div> <script>
-    // Toggle action handler
+    // Toggle action handler for sidebar
     function toggleSidebar() {
         var sidebar = document.getElementById('app-sidebar');
         var wrapper = document.getElementById('castastics-interface');
+        if (sidebar && wrapper) {
+            sidebar.classList.toggle('open');
+            wrapper.classList.toggle('sidebar-active');
+        }
+    }
+
+    // Dynamic Page Switching Logic
+    function switchPage(pageId) {
+        var pages = document.querySelectorAll('.app-page');
+        pages.forEach(function(p) {
+            p.style.display = 'none';
+        });
+
+        var targetPage = document.getElementById('page-' + pageId);
+        if (targetPage) {
+            targetPage.style.display = 'block';
+        }
+
+        var navItems = document.querySelectorAll('.nav-menu .nav-item');
+        navItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
         
-        sidebar.classList.toggle('open');
-        wrapper.classList.toggle('sidebar-active');
+        if (window.event && window.event.currentTarget) {
+            window.event.currentTarget.classList.add('active');
+        }
+
+        var sidebar = document.getElementById('app-sidebar');
+        var wrapper = document.getElementById('castastics-interface');
+        if (sidebar && wrapper) {
+            sidebar.classList.remove('open');
+            wrapper.classList.remove('sidebar-active');
+        }
+        
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 </script>
 </body>
