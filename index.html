@@ -165,39 +165,8 @@
     height: 100%;
     border: none;
                }
-    </style>
-</head>
-<body>
 
-
-    <div id="castastics-interface">
-
-  <nav id="app-sidebar">
-    <div class="sidebar-logo">
-      <h2>The Castastics</h2>
-      <p>Official Channel</p>
-    </div>
-    <ul class="nav-menu">
-      <li><a href="#" class="nav-item active">📺 Home / Streams</a></li>
-      <li><a href="#" class="nav-item">👕 Merch & Toys</a></li>
-      <li><a href="#" class="nav-item">📖 About the Universe</a></li>
-      <li><a href="#" class="nav-item">📩 Contact & Orders</a></li>
-    </ul>
-    
-    <div class="sidebar-socials">
-      <a href="https://www.facebook.com/thedavidartsy/" target="_blank">🌐 FB</a>
-      <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">📸 IG</a>
-      <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">🎮 TW</a>
-    </div>
-  </nav>
-
-  <div id="main-content">
-    
-    </div> </div> ```
-
----
-
-### Step 2: Add the Sidebar CSS
+        ### Step 2: Add the Sidebar CSS
 Go to the very bottom of your existing CSS styles (inside your `<style>` tags) and paste these new rules. These styles use a `flex` layout, which pushes your existing streaming section to the right to make perfect room for the sidebar on desktops.
 
 ```css
@@ -263,6 +232,39 @@ Go to the very bottom of your existing CSS styles (inside your `<style>` tags) a
     #app-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #262626; }
     #main-content { margin-left: 0; padding: 20px; }
 }
+        
+    </style>
+</head>
+<body>
+
+
+    <div id="castastics-interface">
+
+  <nav id="app-sidebar">
+    <div class="sidebar-logo">
+      <h2>The Castastics</h2>
+      <p>Official Channel</p>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-item active">📺 Home / Streams</a></li>
+      <li><a href="#" class="nav-item">👕 Merch & Toys</a></li>
+      <li><a href="#" class="nav-item">📖 About the Universe</a></li>
+      <li><a href="#" class="nav-item">📩 Contact & Orders</a></li>
+    </ul>
+    
+    <div class="sidebar-socials">
+      <a href="https://www.facebook.com/thedavidartsy/" target="_blank">🌐 FB</a>
+      <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">📸 IG</a>
+      <a href="https://m.twitch.tv/davidartsylive/about" target="_blank">🎮 TW</a>
+    </div>
+  </nav>
+
+  <div id="main-content">
+    
+    </div> </div> ```
+
+---
+
 
     <div class="channel-banner"></div>
 
