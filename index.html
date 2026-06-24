@@ -396,7 +396,28 @@
         .live-shelf-portal:hover {
             border-color: #ffcc00;
         }
-
+/* --- NAV LOGO IMAGE STYLING --- */
+        .nav-logo-container {
+            width: 100%;
+            padding: 15px 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .nav-logo-img {
+            max-width: 85%; /* Keeps it perfectly bounded inside the sidebar */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        .nav-subtitle-fix {
+            color: #888;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -409,11 +430,10 @@
 
     <div id="castastics-interface">
 
-        <nav id="app-sidebar">
-            <div class="sidebar-logo">
-                <h2>The Castastics</h2>
-                <p>Official Navigation</p>
-            </div>
+        <div class="nav-logo-container">
+            <img src="logo.png" alt="The Castastics" class="nav-logo-img">
+            <span class="nav-subtitle-fix">Official Navigation</span>
+        </div>
             <ul class="nav-menu">
                 <li><a href="#" class="nav-item active" onclick="switchPage('home')">Home</a></li>
                 <li><a href="#" class="nav-item" onclick="switchPage('merch')">Merch</a></li>
@@ -852,6 +872,9 @@
     </div>
 
     <footer>
+        <div style="text-align: center; padding-bottom: 20px;">
+            <img src="logo.png" alt="The Castastics Logo" style="max-width: 140px; height: auto; opacity: 0.85;">
+        </div>
         <div class="footer-socials">
             <a href="https://www.facebook.com/thedavidartsy/" target="_blank">Facebook</a>
             <a href="https://www.instagram.com/itsdavidartsy/" target="_blank">Instagram</a>
