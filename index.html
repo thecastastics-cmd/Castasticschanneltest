@@ -1435,7 +1435,8 @@ window.confirmUnsubscribe = confirmUnsubscribe;
         <p class="copyright">&copy; 2026 Castastics. All Rights Reserved.</p>
     </footer>
 
-</div> </div> <script>
+</div> </div> 
+    <script>
     // Toggle action handler for sidebar
     function toggleSidebar() {
         var sidebar = document.getElementById('app-sidebar');
@@ -1448,25 +1449,30 @@ window.confirmUnsubscribe = confirmUnsubscribe;
 
     // Dynamic Page Switching Logic
     function switchPage(pageId) {
+        // 1. Force hide absolutely all pages including any leaked content elements
         var pages = document.querySelectorAll('.app-page');
         pages.forEach(function(p) {
-            p.style.display = 'none';
+            p.style.setProperty('display', 'none', 'important');
         });
 
+        // 2. Show ONLY the selected target page
         var targetPage = document.getElementById('page-' + pageId);
         if (targetPage) {
-            targetPage.style.display = 'block';
+            targetPage.style.setProperty('display', 'block', 'important');
         }
 
+        // 3. Clear active states across the navigation menu
         var navItems = document.querySelectorAll('.nav-menu .nav-item');
         navItems.forEach(function(item) {
             item.classList.remove('active');
+            
+            // Bulletproof backup check: if the link text or onclick matches, sync it!
+            if (item.getAttribute('onclick').includes("'" + pageId + "'")) {
+                item.classList.add('active');
+            }
         });
-        
-        if (window.event && window.event.currentTarget) {
-            window.event.currentTarget.classList.add('active');
-        }
 
+        // 4. Close mobile sidebar naturally
         var sidebar = document.getElementById('app-sidebar');
         var wrapper = document.getElementById('castastics-interface');
         if (sidebar && wrapper) {
@@ -1476,7 +1482,7 @@ window.confirmUnsubscribe = confirmUnsubscribe;
         
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
-</script>
+    </script>
     <div id="custom-toast" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #ffcc00; color: #000; padding: 12px 24px; border-radius: 25px; font-family: sans-serif; font-weight: bold; font-size: 0.95rem; box-shadow: 0px 4px 15px rgba(0,0,0,0.5); z-index: 99999; text-align: center; min-width: 250px;">
     Thank you for commenting!
     </div>
