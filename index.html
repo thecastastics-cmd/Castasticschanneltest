@@ -1499,5 +1499,33 @@ window.confirmUnsubscribe = confirmUnsubscribe;
 Thank you for commenting!
 </div>
 
+        <!-- BULLETPROOF LAYOUT & SCRIPT OVERRIDE FORCE -->
+<style>
+    /* 1. Force the footer to stay completely at the bottom of the screen */
+    footer {
+        display: block !important;
+        clear: both !important;
+        position: relative !important;
+        width: 100% !important;
+        margin-top: 50px !important;
+        float: none !important;
+    }
+
+    /* 2. Force the app pages to obey the script and break out of any broken grid columns */
+    .app-page {
+        width: 100% !important;
+        clear: both !important;
+        float: none !important;
+    }
+
+    /* 3. Absolute backup: if a page is set to display block, force it visible no matter what */
+    #page-merch[style*="display: block"], 
+    #page-contact[style*="display: block"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+</style>
+
 </body>
 </html>
